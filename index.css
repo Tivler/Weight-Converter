@@ -1,0 +1,26 @@
+body {
+    font-family: Roboto;
+    margin-top: 70px;
+    background: #333;
+    color: #fff;
+}
+
+.card-block {
+    padding: 20px;
+}
+
+.card-block h4 {
+    font-weight: 700;
+}
+
+#gramsOutput {
+    font-size: .8rem;
+}
+
+#kgOutput {
+    font-size: .8rem;
+}
+
+#ozOutput {
+    font-size: .8rem;
+}
