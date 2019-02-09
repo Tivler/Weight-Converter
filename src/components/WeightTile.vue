@@ -25,6 +25,7 @@
        // Hey sorry phone died
        // Write logic to handle converting weight for different types of weights
        // Update convertedWeightTile data attribute
+
       console.log('Converting bro:', w); 
      }  
     },
@@ -44,21 +45,6 @@
       document.getElementById('kgOutput').innerHTML = lbs / 2.2046;
       document.getElementById('ozOutput').innerHTML = lbs * 16;
   }); */
-  
-//   function foo() {
-//     return {
-//       weight: null,
-  
-//     }
-//   }
-  
-//   let person = {
-//     name: 'Tim',
-//     job: 'Engineer',
-//     goToWork: function() {
-//       console.log('Going to write some shitty code for an evil company.');
-//     }
-//   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
