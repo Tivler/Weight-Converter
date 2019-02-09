@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-
+    <converter></converter>
   </div>
 </template>
 
 <script>
+import Converter from './components/converter'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Converter
+  }
 }
 </script>
 

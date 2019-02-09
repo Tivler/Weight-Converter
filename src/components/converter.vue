@@ -1,11 +1,12 @@
 <template>
-<div class="hero">
+<div>
   <h1>hey</h1>
 </div>
 </template>
 
 <script>
-export default {}
+export default {
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
