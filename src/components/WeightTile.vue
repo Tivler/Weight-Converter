@@ -1,46 +1,38 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h1 class="display-4 text-center mb-3"> Weight Converter</h1>
-        <form @submit.prevent="convertWeight">
-          <div class="form-group">
-            <input v-model="weight" id="lbsInput" type="number" class="form-control form-control-lg" placeholder="Enter Pounds...">
-          </div>
-        </form>
-
-        <div id="output">
-          <weight-tile :weight="this.weight" name="Grams:" color="bg-warning"></weight-tile>
-          <weight-tile :weight="this.weight" name='Kilograms:' color="bg-info"></weight-tile>
-          <weight-tile :weight="this.weight" name='Ounces:' color="bg-secondary"></weight-tile>
+<div class="card mb-2" :class="cardColor">
+    <div class="card-block">
+        <h4>{{ name  }} </h4>
+        <div id="weightOutput">
+          {{ convertedWeight }}
         </div>
-      </div>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
-import WeightTile from './WeightTile'
-
 /* eslint-disable */
   export default {
-    name: 'converter',
-    components: {
-        WeightTile
-    },
+    name: 'weightTile',
+    props: ['name', 'color', 'weight'],
     data() {
       return {
-        weight: null,
+        cardColor: this.$props.color,
+        convertedWeight: null
       }
     },
     methods: {
-      convertWeight(weight) {
-        console.log('Converting weight:', weight);
-      },
-      handleWeightForm(e) {
-        console.log('Handling for submitted', e.target.value);  
-      }
+     convertWeight(w) {
+       // Hey sorry phone died
+       // Write logic to handle converting weight for different types of weights
+       // Update convertedWeightTile data attribute
+      console.log('Converting bro:', w); 
+     }  
+    },
+    created() {
+      this.convertWeight(this.$props.weight);
     }
+    // TODO: Write a function that converts weight
+
     // Hooks are things that happen. Like events. created is when the component lands on the page. beforeCreate is before component is created
   }
   // console.log('Vue is here')
@@ -95,15 +87,7 @@ import WeightTile from './WeightTile'
     font-weight: 700;
   }
   
-  #gramsOutput {
-    font-size: .8rem;
-  }
-  
-  #kgOutput {
-    font-size: .8rem;
-  }
-  
-  #ozOutput {
+  #weightOutput {
     font-size: .8rem;
   }
 </style>
