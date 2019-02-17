@@ -1,7 +1,7 @@
 <template>
 <div class="card mb-2" :class="cardColor">
     <div class="card-block">
-        <h4>{{ name  }} </h4>
+        <h4>{{ this.$props.metricUnit }} </h4>
         <div id="weightOutput">
           {{ convertedWeight }}
         </div>
@@ -13,24 +13,36 @@
 /* eslint-disable */
   export default {
     name: 'weightTile',
-    props: ['name', 'color', 'weight'],
+    props: ['color', 'weight', 'metricUnit'],
     data() {
       return {
         cardColor: this.$props.color,
-        convertedWeight: null
+        weightToConvert: this.$props.weight,
+        calculations: {
+          gramsDivider: '453.59237',
+          kgDivider: '2.2046',
+          ouncesMult: '16'
+        }
       }
     },
     methods: {
      convertWeight(w) {
-       // Hey sorry phone died
-       // Write logic to handle converting weight for different types of weights
-       // Update convertedWeightTile data attribute
-
-      console.log('Converting bro:', w); 
-     }  
+       const { gramsDivider, kgDivider, ouncesMult } = this.calculations;
+     }
     },
-    created() {
-      this.convertWeight(this.$props.weight);
+    computed: {
+      convertedWeight(w) {
+        const { gramsDivider, kgDivider, ouncesMult } = this.calculations;
+
+        const units = ['grams', 'kilograms', 'ounces'];
+
+        units.map((unit) => {
+          console.log('Unit:', unit);
+        });
+      }
+    },
+    mounted() {
+      //this.convertWeight(this.$props.weight);
     }
     // TODO: Write a function that converts weight
 
@@ -59,22 +71,23 @@
     background-color: aliceblue;
     padding: 50px;
   }
-  
+
   .display-4 {
     font-family: "Raleway";
     font-weight: 500;
   }
-  
+
   .card-block {
     padding: 20px;
   }
-  
+
   .card-block h4 {
+    text-transform: capitalize;
     font-weight: 700;
   }
-  
+
   #weightOutput {
     font-size: .8rem;
   }
 </style>
-  
+
